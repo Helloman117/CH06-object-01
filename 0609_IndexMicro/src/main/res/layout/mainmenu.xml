@@ -2,14 +2,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay01"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back01"
     android:orientation="vertical"
-    tools:context=".M0609">
+    android:padding="@dimen/p10"
+    android:paddingTop="@dimen/Spacing"
+    tools:context=".Menu01">
+
+    <ScrollView
+        android:id="@+id/scr01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <LinearLayout
+            android:id="@+id/lay02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
     <TextView
+        android:id="@+id/myname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_gravity="end"
+        android:gravity="center|right|end"
+        android:text="@string/myname"
+        android:textColor="@color/Yellow"
+        android:textSize="@dimen/fontsize" />
+
+    <TextView
+        android:id="@+id/objT001"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:text="@string/m05"
+        android:textColor="@color/Blue"
+        android:textSize="@dimen/fontsize"
+        android:visibility="visible" />
 
 </LinearLayout>
