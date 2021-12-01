@@ -21,5 +21,6 @@ include ':0606_Game_final'
 include ':0607_IntentAll'
 include ':0608_calculator'
 include ':0608b_ScrollView'
+include ':0608a_getIdentifier'
 
-include ':06-08a getIdentifier'
+include ':0609_IndexMicro'

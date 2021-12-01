@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android-work/Ch06-object-x/06-08a getIdentifier/src/main/res/layout/m0608.xml" value="0.1" />
         <entry key="..\:/android-work/Ch06-object-x/0607_IntentAll/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3380208333333333" />
         <entry key="..\:/android-work/Ch06-object-x/0607_IntentAll/src/main/res/layout/custom.xml" value="0.16614583333333333" />
         <entry key="..\:/android-work/Ch06-object-x/0607_IntentAll/src/main/res/layout/m0500.xml" value="0.25" />
@@ -20,6 +21,8 @@
         <entry key="..\:/android-work/Ch06-object-x/0608a_getIdentifier/src/main/res/layout/m0608.xml" value="0.25" />
         <entry key="..\:/android-work/Ch06-object-x/0608b1_ScrollView/src/main/res/layout/m0608.xml" value="0.1" />
         <entry key="..\:/android-work/Ch06-object-x/0608b_ScrollView/src/main/res/layout/m0608b.xml" value="0.5" />
+        <entry key="..\:/android-work/Ch06-object-x/0609_IndexMicro/src/main/res/layout/m0609.xml" value="0.15" />
+        <entry key="..\:/android-work/Ch06-object-x/0609_IndexMicro/src/main/res/layout/mainmenu.xml" value="0.22" />
         <entry key="..\:/android-work/Ch06-object/0600_RelativeLayout/src/main/res/layout/m0600.xml" value="0.67" />
         <entry key="..\:/android-work/Ch06-object/0601_RelativeLayout_Game/src/main/res/layout/m0601.xml" value="0.33" />
         <entry key="..\:/android-work/Ch06-object/0601a_Game_textcolor/src/main/res/layout/m0601.xml" value="0.21851851851851853" />
