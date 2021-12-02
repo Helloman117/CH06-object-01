@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="999"
+        android:title="@string/m0609_reten" />
+    <item
+        android:id="@+id/about"
+        android:orderInCategory="100"
+        android:title="@string/m_about" />
+</menu>

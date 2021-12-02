@@ -1,8 +1,5 @@
 package tw.tcnr15.m0609;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -15,12 +12,16 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Menu01 extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Menu03 extends AppCompatActivity {
 
     private LinearLayout mlay02;
     private TextView myname;
     private TextView tv;
-    private Intent intent01=new Intent();
+    private Intent intent03 = new Intent();
+
+    private String mode_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,8 @@ public class Menu01 extends AppCompatActivity {
     }
 
     private void setupComponent() {
-
         mlay02 = (LinearLayout) findViewById(R.id.lay02);
-        myname=(TextView)findViewById(R.id.myname);
+        myname = (TextView) findViewById(R.id.myname);
         //---------------------------------------------------------------------
         //-----------------------------------------------------
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -45,13 +45,13 @@ public class Menu01 extends AppCompatActivity {
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int newscrollheight = displayMetrics.heightPixels * 85/ 100; // 設定ScrollView使用尺寸的4/5
-         String px = displayMetrics.widthPixels + " x " +
-         displayMetrics.heightPixels;
-         String dp = displayMetrics.xdpi + " x " + displayMetrics.ydpi;
-         String density = "densityDpi = " + displayMetrics.densityDpi +
-         ", density=" + displayMetrics.density + ", scaledDensity = " +
-         displayMetrics.scaledDensity;
+        int newscrollheight = displayMetrics.heightPixels * 85 / 100; // 設定ScrollView使用尺寸的4/5
+        String px = displayMetrics.widthPixels + " x " +
+                displayMetrics.heightPixels;
+        String dp = displayMetrics.xdpi + " x " + displayMetrics.ydpi;
+        String density = "densityDpi = " + displayMetrics.densityDpi +
+                ", density=" + displayMetrics.density + ", scaledDensity = " +
+                displayMetrics.scaledDensity;
 //         myname.setText(px + "\n" + dp + "\n" +density + "\n" +
 //         newscrollheight);
 
@@ -65,9 +65,13 @@ public class Menu01 extends AppCompatActivity {
         // ----
         TextView objt001 = (TextView) findViewById(R.id.objT001); // 取出參考物件
         objt001.setVisibility(View.GONE); // 設定參考物件隱藏不佔空間
+        // 設定class標題
+        intent03 = this.getIntent();
+        mode_title = intent03.getStringExtra("subname");
+        this.setTitle(this.getResources().getIdentifier(mode_title, "string", getPackageName()));
         // -------------------------------------------------------------------------------------------
-        try{
-            for (int i = 5; i <= 20; i++)   {// 設定走20圈, 遇到沒資料自動停止.
+        try {
+            for (int i = 1; i <= 20; i++) {// 設定走20圈, 遇到沒資料自動停止.
                 tv = new TextView(this); // tv 繼承TextView
                 tv.setId(i); // 寫入配置碼ID 代號
                 // %02d執行十進制整數轉換d，格式化補零，寬度為2。 因此，一個int參數，它的值是7
@@ -75,7 +79,7 @@ public class Menu01 extends AppCompatActivity {
                 String microNo = String.format("%02d", i);
 //                Log.d(TAG,             microNo                );
                 // 取得string 裏頭相對應的ID 碼
-                int id = getResources().getIdentifier("m" + microNo, "string", getPackageName());
+                int id = getResources().getIdentifier(mode_title + microNo, "string", getPackageName());
                 // --------------------------------------------
                 if (id == 0) {
                     break; // 假如 getIdentifier 找不到滿足資料, 會傳回 0 , 所以中斷迴圈
@@ -94,32 +98,40 @@ public class Menu01 extends AppCompatActivity {
                         objt001.getPaddingBottom()); // 設定文字內間距 left,top,right,bottom
                 mlay02.addView(tv);// 顯示textview物件
 
-                tv.setOnClickListener(clkOn);
+//                tv.setOnClickListener(clkOn);
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             return;
 
         }
 
 
     }
+
     private View.OnClickListener clkOn = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            int ii = (v.getId()); // 下層巨集前兩碼
-            String mm = String.format("%02d", ii);
-            String subname = "m" + mm;
-
-            // ------------------------------------------
-//            Log.d(TAG, "subname:"+subname);
-//            intent01.putExtra("sel", ii);
-            intent01.putExtra("subname", subname); // subname => m05,m06,m07....m17
-            intent01.setClass(Menu01.this, Menu02.class);
-            startActivity(intent01);
+//            int ii = (v.getId()); // 下層巨集前兩碼
+//            String mm = String.format("%02d", ii);
+//            String subname = mode_title + mm;
+//
+//            // ------------------------------------------
+////            Log.d(TAG, "subname:"+subname);
+////            intent01.putExtra("sel", ii);
+//           intent03.putExtra("subname", subname); // subname => m05,m06,m07....m17
+//          intent03.setClass(Menu03.this, Menu01.class);
+//         startActivity(intent03);
 
         }
+
+
     };
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        Toast.makeText(getApplicationContext(), "禁用返回建", Toast.LENGTH_SHORT).show();
+    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -128,29 +140,20 @@ public class Menu01 extends AppCompatActivity {
     }
 
     @Override
-    public void onBackPressed() {
-//        super.onBackPressed();
-        Toast.makeText(getApplicationContext(), "禁用返回建", Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-switch (item.getItemId()){
-    case R.id.about:
-//        intent01.putExtra("class_title", getString(R.string.m0609_reten));
-//        intent01.setClass(Menu01.this,Menu02.class);
-//        startActivity(intent01);
+        switch (item.getItemId()) {
+            case R.id.about:
 
-        break;
+                break;
 
-    case R.id.action_settings:
-         this.finish();
-        break;
-}
+            case R.id.action_settings:
+                this.finish();
+                break;
+        }
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             this.finish();
